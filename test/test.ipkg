@@ -3,7 +3,7 @@ package fixed-test
 authors    = "Matthew-Mosior"
 version    = 0.1.0
 sourcedir  = "src"
-depends    = fixed
+depends    = idris2-fixed
            , hedgehog
 main       = Main
 executable = "fixed-test"
