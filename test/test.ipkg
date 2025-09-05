@@ -1,0 +1,9 @@
+package fixed-test
+
+authors    = "Matthew-Mosior"
+version    = 0.1.0
+sourcedir  = "src"
+depends    = fixed
+           , hedgehog
+main       = Main
+executable = "fixed-test"
