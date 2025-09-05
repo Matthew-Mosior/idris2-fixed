@@ -441,12 +441,11 @@ public export
 |||
 ||| @witness  the phantom value whose resolution is looked up
 ||| @f        a continuation expecting the resolution as an `Integer`
-||| @return   the result of applying `f` to the resolution, in the context `f a`
+||| @return   the result of applying `f` to the resolution, in the context `b`
 export
-withResolution :  {f : Type -> Type}
-               -> HasResolution a
+withResolution :  HasResolution a
                => (witness : a)
-               -> (Integer -> f a)
-               -> f a
+               -> (f : Integer -> b)
+               -> b
 withResolution witness f =
   f (resolution witness)
