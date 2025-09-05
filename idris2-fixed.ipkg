@@ -1,4 +1,4 @@
-package fixed
+package idris2-fixed
 
 authors   = "Matthew-Mosior"
 brief     = "Fixed dependent type for working with fixed-point arithmetic"
