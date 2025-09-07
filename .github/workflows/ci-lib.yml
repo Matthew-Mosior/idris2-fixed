@@ -30,4 +30,4 @@ jobs:
       - name: Build lib
         run: pack --no-prompt install containers
       - name: Run test
-        run: pack test containers
+        run: pack test idris2-fixed
