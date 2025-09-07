@@ -28,6 +28,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Build lib
-        run: pack --no-prompt install containers
+        run: pack --no-prompt install fixed
       - name: Run test
         run: pack test idris2-fixed
