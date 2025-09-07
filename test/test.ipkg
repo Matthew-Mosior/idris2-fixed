@@ -1,6 +1,6 @@
 package fixed-test
 
-authors    = "Matthew-Mosior"
+authors    = "Matthew Mosior"
 version    = 0.1.0
 sourcedir  = "src"
 depends    = idris2-fixed

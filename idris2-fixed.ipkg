@@ -1,6 +1,6 @@
 package idris2-fixed
 
-authors   = "Matthew-Mosior"
+authors   = "Matthew Mosior"
 brief     = "Fixed dependent type for working with fixed-point arithmetic"
 version   = 0.1.0
 sourcedir = "src"
