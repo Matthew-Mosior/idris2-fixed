@@ -115,6 +115,62 @@ prop_e3_frominteger : Property
 prop_e3_frominteger = property1 $
   show (the Milli (fromInteger (the Integer 12345))) === "12345.000"
 
+prop_e4_show : Property
+prop_e4_show = property1 $
+ show (the TenthMilli (MkFixed 12345)) === "1.2345"
+
+prop_e4_neg_show : Property
+prop_e4_neg_show = property1 $
+ show (the TenthMilli (negate $ MkFixed 12345)) === "-1.2345"
+
+prop_e4_add : Property
+prop_e4_add = property1 $
+  show ((the TenthMilli (MkFixed 12345)) + (the TenthMilli (MkFixed 12345))) === "2.4690"
+
+prop_e4_sub : Property
+prop_e4_sub = property1 $
+  show ((the TenthMilli (MkFixed 12345)) - (the TenthMilli (MkFixed 12345))) === "0.0000"
+
+prop_e4_mult : Property
+prop_e4_mult = property1 $
+  show ((the TenthMilli (MkFixed 12345)) * (the TenthMilli (MkFixed 12345))) === "1.5239"
+
+prop_e4_div : Property
+prop_e4_div = property1 $
+  show ((the TenthMilli (MkFixed 12345)) / (the TenthMilli (MkFixed 12345))) === "1.0000"
+
+prop_e4_frominteger : Property
+prop_e4_frominteger = property1 $
+  show (the TenthMilli (fromInteger (the Integer 12345))) === "12345.0000"
+
+prop_e5_show : Property
+prop_e5_show = property1 $
+ show (the HundredthMilli (MkFixed 12345)) === "0.12345"
+
+prop_e5_neg_show : Property
+prop_e5_neg_show = property1 $
+ show (the HundredthMilli (negate $ MkFixed 12345)) === "-0.12345"
+
+prop_e5_add : Property
+prop_e5_add = property1 $
+  show ((the HundredthMilli (MkFixed 12345)) + (the HundredthMilli (MkFixed 12345))) === "0.24690"
+
+prop_e5_sub : Property
+prop_e5_sub = property1 $
+  show ((the HundredthMilli (MkFixed 12345)) - (the HundredthMilli (MkFixed 12345))) === "0.00000"
+
+prop_e5_mult : Property
+prop_e5_mult = property1 $
+  show ((the HundredthMilli (MkFixed 12345)) * (the HundredthMilli (MkFixed 12345))) === "0.01523"
+
+prop_e5_div : Property
+prop_e5_div = property1 $
+  show ((the HundredthMilli (MkFixed 12345)) / (the HundredthMilli (MkFixed 12345))) === "1.00000"
+
+prop_e5_frominteger : Property
+prop_e5_frominteger = property1 $
+  show (the HundredthMilli (fromInteger (the Integer 12345))) === "12345.00000"
+
 prop_e6_show : Property
 prop_e6_show = property1 $
  show (the Micro (MkFixed 12345)) === "0.012345"
@@ -143,6 +199,62 @@ prop_e6_frominteger : Property
 prop_e6_frominteger = property1 $
   show (the Micro (fromInteger (the Integer 12345))) === "12345.000000"
 
+prop_e7_show : Property
+prop_e7_show = property1 $
+ show (the DeciMicro (MkFixed 12345)) === "0.0012345"
+
+prop_e7_neg_show : Property
+prop_e7_neg_show = property1 $
+ show (the DeciMicro (negate $ MkFixed 12345)) === "-0.0012345"
+
+prop_e7_add : Property
+prop_e7_add = property1 $
+  show ((the DeciMicro (MkFixed 12345)) + (the DeciMicro (MkFixed 12345))) === "0.0024690"
+
+prop_e7_sub : Property
+prop_e7_sub = property1 $
+  show ((the DeciMicro (MkFixed 12345)) - (the DeciMicro (MkFixed 12345))) === "0.0000000"
+
+prop_e7_mult : Property
+prop_e7_mult = property1 $
+  show ((the DeciMicro (MkFixed 12345)) * (the DeciMicro (MkFixed 12345))) === "0.0000015"
+
+prop_e7_div : Property
+prop_e7_div = property1 $
+  show ((the DeciMicro (MkFixed 12345)) / (the DeciMicro (MkFixed 12345))) === "1.0000000"
+
+prop_e7_frominteger : Property
+prop_e7_frominteger = property1 $
+  show (the DeciMicro (fromInteger (the Integer 12345))) === "12345.0000000"
+
+prop_e8_show : Property
+prop_e8_show = property1 $
+ show (the CentiMicro (MkFixed 12345)) === "0.00012345"
+
+prop_e8_neg_show : Property
+prop_e8_neg_show = property1 $
+ show (the CentiMicro (negate $ MkFixed 12345)) === "-0.00012345"
+
+prop_e8_add : Property
+prop_e8_add = property1 $
+  show ((the CentiMicro (MkFixed 12345)) + (the CentiMicro (MkFixed 12345))) === "0.00024690"
+
+prop_e8_sub : Property
+prop_e8_sub = property1 $
+  show ((the CentiMicro (MkFixed 12345)) - (the CentiMicro (MkFixed 12345))) === "0.00000000"
+
+prop_e8_mult : Property
+prop_e8_mult = property1 $
+  show ((the CentiMicro (MkFixed 12345)) * (the CentiMicro (MkFixed 12345))) === "0.00000001"
+
+prop_e8_div : Property
+prop_e8_div = property1 $
+  show ((the CentiMicro (MkFixed 12345)) / (the CentiMicro (MkFixed 12345))) === "1.00000000"
+
+prop_e8_frominteger : Property
+prop_e8_frominteger = property1 $
+  show (the CentiMicro (fromInteger (the Integer 12345))) === "12345.00000000"
+
 prop_e9_show : Property
 prop_e9_show = property1 $
  show (the Nano (MkFixed 12345)) === "0.000012345"
@@ -170,6 +282,62 @@ prop_e9_div = property1 $
 prop_e9_frominteger : Property
 prop_e9_frominteger = property1 $
   show (the Nano (fromInteger (the Integer 12345))) === "12345.000000000"
+
+prop_e10_show : Property
+prop_e10_show = property1 $
+ show (the DeciNano (MkFixed 12345)) === "0.0000012345"
+
+prop_e10_neg_show : Property
+prop_e10_neg_show = property1 $
+ show (the DeciNano (negate $ MkFixed 12345)) === "-0.0000012345"
+
+prop_e10_add : Property
+prop_e10_add = property1 $
+  show ((the DeciNano (MkFixed 12345)) + (the DeciNano (MkFixed 12345))) === "0.0000024690"
+
+prop_e10_sub : Property
+prop_e10_sub = property1 $
+  show ((the DeciNano (MkFixed 12345)) - (the DeciNano (MkFixed 12345))) === "0.0000000000"
+
+prop_e10_mult : Property
+prop_e10_mult = property1 $
+  show ((the DeciNano (MkFixed 12345)) * (the DeciNano (MkFixed 12345))) === "0.0000000000"
+
+prop_e10_div : Property
+prop_e10_div = property1 $
+  show ((the DeciNano (MkFixed 12345)) / (the DeciNano (MkFixed 12345))) === "1.0000000000"
+
+prop_e10_frominteger : Property
+prop_e10_frominteger = property1 $
+  show (the DeciNano (fromInteger (the Integer 12345))) === "12345.0000000000"
+
+prop_e11_show : Property
+prop_e11_show = property1 $
+ show (the CentiNano (MkFixed 12345)) === "0.00000012345"
+
+prop_e11_neg_show : Property
+prop_e11_neg_show = property1 $
+ show (the CentiNano (negate $ MkFixed 12345)) === "-0.00000012345"
+
+prop_e11_add : Property
+prop_e11_add = property1 $
+  show ((the CentiNano (MkFixed 12345)) + (the CentiNano (MkFixed 12345))) === "0.00000024690"
+
+prop_e11_sub : Property
+prop_e11_sub = property1 $
+  show ((the CentiNano (MkFixed 12345)) - (the CentiNano (MkFixed 12345))) === "0.00000000000"
+
+prop_e11_mult : Property
+prop_e11_mult = property1 $
+  show ((the CentiNano (MkFixed 12345)) * (the CentiNano (MkFixed 12345))) === "0.00000000000"
+
+prop_e11_div : Property
+prop_e11_div = property1 $
+  show ((the CentiNano (MkFixed 12345)) / (the CentiNano (MkFixed 12345))) === "1.00000000000"
+
+prop_e11_frominteger : Property
+prop_e11_frominteger = property1 $
+  show (the CentiNano (fromInteger (the Integer 12345))) === "12345.00000000000"
 
 prop_e12_show : Property
 prop_e12_show = property1 $
@@ -230,6 +398,20 @@ props = MkGroup "Fixed"
   , ("prop_e3_mult", prop_e3_mult)
   , ("prop_e3_div", prop_e3_div)
   , ("prop_e3_frominteger", prop_e3_frominteger)
+  , ("prop_e4_show", prop_e4_show)
+  , ("prop_e4_neg_show", prop_e4_neg_show)
+  , ("prop_e4_add", prop_e4_add)
+  , ("prop_e4_sub", prop_e4_sub)
+  , ("prop_e4_mult", prop_e4_mult)
+  , ("prop_e4_div", prop_e4_div)
+  , ("prop_e4_frominteger", prop_e4_frominteger)
+  , ("prop_e5_show", prop_e5_show)
+  , ("prop_e5_neg_show", prop_e5_neg_show)
+  , ("prop_e5_add", prop_e5_add)
+  , ("prop_e5_sub", prop_e5_sub)
+  , ("prop_e5_mult", prop_e5_mult)
+  , ("prop_e5_div", prop_e5_div)
+  , ("prop_e5_frominteger", prop_e5_frominteger)
   , ("prop_e6_show", prop_e6_show)
   , ("prop_e6_neg_show", prop_e6_neg_show)
   , ("prop_e6_add", prop_e6_add)
@@ -237,6 +419,20 @@ props = MkGroup "Fixed"
   , ("prop_e6_mult", prop_e6_mult)
   , ("prop_e6_div", prop_e6_div)
   , ("prop_e6_frominteger", prop_e6_frominteger)
+  , ("prop_e7_show", prop_e7_show)
+  , ("prop_e7_neg_show", prop_e7_neg_show)
+  , ("prop_e7_add", prop_e7_add)
+  , ("prop_e7_sub", prop_e7_sub)
+  , ("prop_e7_mult", prop_e7_mult)
+  , ("prop_e7_div", prop_e7_div)
+  , ("prop_e7_frominteger", prop_e7_frominteger)
+  , ("prop_e8_show", prop_e8_show)
+  , ("prop_e8_neg_show", prop_e8_neg_show)
+  , ("prop_e8_add", prop_e8_add)
+  , ("prop_e8_sub", prop_e8_sub)
+  , ("prop_e8_mult", prop_e8_mult)
+  , ("prop_e8_div", prop_e8_div)
+  , ("prop_e8_frominteger", prop_e8_frominteger)
   , ("prop_e9_show", prop_e9_show)
   , ("prop_e9_neg_show", prop_e9_neg_show)
   , ("prop_e9_add", prop_e9_add)
@@ -244,6 +440,20 @@ props = MkGroup "Fixed"
   , ("prop_e9_mult", prop_e9_mult)
   , ("prop_e9_div", prop_e9_div)
   , ("prop_e9_frominteger", prop_e9_frominteger)
+  , ("prop_e10_show", prop_e10_show)
+  , ("prop_e10_neg_show", prop_e10_neg_show)
+  , ("prop_e10_add", prop_e10_add)
+  , ("prop_e10_sub", prop_e10_sub)
+  , ("prop_e10_mult", prop_e10_mult)
+  , ("prop_e10_div", prop_e10_div)
+  , ("prop_e10_frominteger", prop_e10_frominteger)
+  , ("prop_e11_show", prop_e11_show)
+  , ("prop_e11_neg_show", prop_e11_neg_show)
+  , ("prop_e11_add", prop_e11_add)
+  , ("prop_e11_sub", prop_e11_sub)
+  , ("prop_e11_mult", prop_e11_mult)
+  , ("prop_e11_div", prop_e11_div)
+  , ("prop_e11_frominteger", prop_e11_frominteger)
   , ("prop_e12_show", prop_e12_show)
   , ("prop_e12_neg_show", prop_e12_neg_show)
   , ("prop_e12_add", prop_e12_add)

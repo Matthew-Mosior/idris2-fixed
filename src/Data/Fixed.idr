@@ -296,6 +296,92 @@ public export
       showFixed MkE3 False n
 
 --------------------------------------------------------------------------------
+--          E4/TenthMilli
+--------------------------------------------------------------------------------
+
+||| +------------+--------------------+------------+------------+
+||| | Resolution | Scaling Factor     | Type       | show 12345 |
+||| +============+====================+=======+=================+
+||| | E4         | 1\10000            | TenthMilli | 1.2345     |
+||| +------------+--------------------+------------+------------+
+public export
+data E4 : Type where
+  MkE4 : E4
+
+public export
+TenthMilli : Type
+TenthMilli = Fixed E4
+
+public export
+HasResolution E4 where
+  resolution MkE4 = 10000
+
+public export
+Num (Fixed E4) where
+  (MkFixed a) + (MkFixed b) = MkFixed (a + b)
+  (MkFixed a) * (MkFixed b) = MkFixed (div (a * b) (resolution MkE4))
+  fromInteger i             = MkFixed (i * resolution MkE4)
+
+public export
+Num (Fixed E4) => Neg (Fixed E4) where
+  negate (MkFixed a)          = MkFixed (negate a)
+  (-) (MkFixed a) (MkFixed b) = MkFixed (a - b)
+
+public export
+Fractional (Fixed E4) where
+  (MkFixed a) / (MkFixed b) = MkFixed (div (a * resolution MkE4) b)
+  recip (MkFixed a)         = MkFixed (div (resolution MkE4 * resolution MkE4) a)
+
+public export
+(HasResolution E4) => Show (Fixed E4) where
+  showPrec p n@(MkFixed a) =
+    showParens (p >= App && a < 0) $
+      showFixed MkE4 False n
+
+--------------------------------------------------------------------------------
+--          E5/HundredthMilli
+--------------------------------------------------------------------------------
+
+||| +------------+--------------------+------------------------+------------+
+||| | Resolution | Scaling Factor     | Type                   | show 12345 |
+||| +============+====================+========================+============+
+||| | E5         | 1\100000           | HundredthMilli         | 0.12345    |
+||| +------------+--------------------+------------------------+------------+
+public export
+data E5 : Type where
+  MkE5 : E5
+
+public export
+HundredthMilli : Type
+HundredthMilli = Fixed E5
+
+public export
+HasResolution E5 where
+  resolution MkE5 = 100000
+
+public export
+Num (Fixed E5) where
+  (MkFixed a) + (MkFixed b) = MkFixed (a + b)
+  (MkFixed a) * (MkFixed b) = MkFixed (div (a * b) (resolution MkE5))
+  fromInteger i             = MkFixed (i * resolution MkE5)
+
+public export
+Num (Fixed E5) => Neg (Fixed E5) where
+  negate (MkFixed a)          = MkFixed (negate a)
+  (-) (MkFixed a) (MkFixed b) = MkFixed (a - b)
+
+public export
+Fractional (Fixed E5) where
+  (MkFixed a) / (MkFixed b) = MkFixed (div (a * resolution MkE5) b)
+  recip (MkFixed a)         = MkFixed (div (resolution MkE5 * resolution MkE5) a)
+
+public export
+(HasResolution E5) => Show (Fixed E5) where
+  showPrec p n@(MkFixed a) =
+    showParens (p >= App && a < 0) $
+      showFixed MkE5 False n
+
+--------------------------------------------------------------------------------
 --          E6/Micro
 --------------------------------------------------------------------------------
 
@@ -339,6 +425,92 @@ public export
       showFixed MkE6 False n
 
 --------------------------------------------------------------------------------
+--          E7/DeciMicro
+--------------------------------------------------------------------------------
+
+||| +------------+-------------------+-----------+------------+
+||| | Resolution | Scaling Factor    | Type      | show 12345 |
+||| +============+===================+===========+============+
+||| | E7         | 1\10000000        | DeciMicro | 0.0012345  |
+||| +------------+-------------------+-----------+------------+
+public export
+data E7 : Type where
+  MkE7 : E7
+
+public export
+DeciMicro : Type
+DeciMicro = Fixed E7
+
+public export
+HasResolution E7 where
+  resolution MkE7 = 10000000
+
+public export
+Num (Fixed E7) where
+  (MkFixed a) + (MkFixed b) = MkFixed (a + b)
+  (MkFixed a) * (MkFixed b) = MkFixed (div (a * b) (resolution MkE7))
+  fromInteger i             = MkFixed (i * resolution MkE7)
+
+public export
+Num (Fixed E7) => Neg (Fixed E7) where
+  negate (MkFixed a)          = MkFixed (negate a)
+  (-) (MkFixed a) (MkFixed b) = MkFixed (a - b)
+
+public export
+Fractional (Fixed E7) where
+  (MkFixed a) / (MkFixed b) = MkFixed (div (a * resolution MkE7) b)
+  recip (MkFixed a)         = MkFixed (div (resolution MkE7 * resolution MkE7) a)
+
+public export
+(HasResolution E7) => Show (Fixed E7) where
+  showPrec p n@(MkFixed a) =
+    showParens (p >= App && a < 0) $
+      showFixed MkE7 False n
+
+--------------------------------------------------------------------------------
+--          E8/CentiMicro
+--------------------------------------------------------------------------------
+
+||| +------------+--------------------+------------+------------+
+||| | Resolution | Scaling Factor     | Type       | show 12345 |
+||| +============+====================+============+============+
+||| | E8         | 1\100000000        | CentiMicro | 0.00012345 |
+||| +------------+--------------------+------------+------------+
+public export
+data E8 : Type where
+  MkE8 : E8
+
+public export
+CentiMicro : Type
+CentiMicro = Fixed E8
+
+public export
+HasResolution E8 where
+  resolution MkE8 = 100000000
+
+public export
+Num (Fixed E8) where
+  (MkFixed a) + (MkFixed b) = MkFixed (a + b)
+  (MkFixed a) * (MkFixed b) = MkFixed (div (a * b) (resolution MkE8))
+  fromInteger i             = MkFixed (i * resolution MkE8)
+
+public export
+Num (Fixed E8) => Neg (Fixed E8) where
+  negate (MkFixed a)          = MkFixed (negate a)
+  (-) (MkFixed a) (MkFixed b) = MkFixed (a - b)
+
+public export
+Fractional (Fixed E8) where
+  (MkFixed a) / (MkFixed b) = MkFixed (div (a * resolution MkE8) b)
+  recip (MkFixed a)         = MkFixed (div (resolution MkE8 * resolution MkE8) a)
+
+public export
+(HasResolution E8) => Show (Fixed E8) where
+  showPrec p n@(MkFixed a) =
+    showParens (p >= App && a < 0) $
+      showFixed MkE8 False n
+
+--------------------------------------------------------------------------------
 --          E9/Nano
 --------------------------------------------------------------------------------
 
@@ -380,6 +552,92 @@ public export
   showPrec p n@(MkFixed a) =
     showParens (p >= App && a < 0) $
       showFixed MkE9 False n
+
+--------------------------------------------------------------------------------
+--          E10/DeciNano
+--------------------------------------------------------------------------------
+
+||| +------------+-----------------+----------+--------------+
+||| | Resolution | Scaling Factor  | Type     | show 12345   |
+||| +============+=================+==========+==============+
+||| | E10        | 1\10000000000   | DeciNano | 0.0000012345 |
+||| +------------+-----------------+----------+--------------+
+public export
+data E10 : Type where
+  MkE10 : E10
+
+public export
+DeciNano : Type
+DeciNano = Fixed E10
+
+public export
+HasResolution E10 where
+  resolution MkE10 = 10000000000
+
+public export
+Num (Fixed E10) where
+  (MkFixed a) + (MkFixed b) = MkFixed (a + b)
+  (MkFixed a) * (MkFixed b) = MkFixed (div (a * b) (resolution MkE10))
+  fromInteger i             = MkFixed (i * resolution MkE10)
+
+public export
+Num (Fixed E10) => Neg (Fixed E10) where
+  negate (MkFixed a)          = MkFixed (negate a)
+  (-) (MkFixed a) (MkFixed b) = MkFixed (a - b)
+
+public export
+Fractional (Fixed E10) where
+  (MkFixed a) / (MkFixed b) = MkFixed (div (a * resolution MkE10) b)
+  recip (MkFixed a)         = MkFixed (div (resolution MkE10 * resolution MkE10) a)
+
+public export
+(HasResolution E10) => Show (Fixed E10) where
+  showPrec p n@(MkFixed a) =
+    showParens (p >= App && a < 0) $
+      showFixed MkE10 False n
+
+--------------------------------------------------------------------------------
+--          E11/CentiNano
+--------------------------------------------------------------------------------
+
+||| +------------+-----------------+-----------+---------------+
+||| | Resolution | Scaling Factor  | Type      | show 12345    |
+||| +============+=================+===========+===============+
+||| | E11        | 1\100000000000  | CentiNano | 0.00000012345 |
+||| +------------+-----------------+-----------+---------------+
+public export
+data E11 : Type where
+  MkE11 : E11
+
+public export
+CentiNano : Type
+CentiNano = Fixed E11
+
+public export
+HasResolution E11 where
+  resolution MkE11 = 100000000000
+
+public export
+Num (Fixed E11) where
+  (MkFixed a) + (MkFixed b) = MkFixed (a + b)
+  (MkFixed a) * (MkFixed b) = MkFixed (div (a * b) (resolution MkE11))
+  fromInteger i             = MkFixed (i * resolution MkE11)
+
+public export
+Num (Fixed E11) => Neg (Fixed E11) where
+  negate (MkFixed a)          = MkFixed (negate a)
+  (-) (MkFixed a) (MkFixed b) = MkFixed (a - b)
+
+public export
+Fractional (Fixed E11) where
+  (MkFixed a) / (MkFixed b) = MkFixed (div (a * resolution MkE11) b)
+  recip (MkFixed a)         = MkFixed (div (resolution MkE11 * resolution MkE11) a)
+
+public export
+(HasResolution E11) => Show (Fixed E11) where
+  showPrec p n@(MkFixed a) =
+    showParens (p >= App && a < 0) $
+      showFixed MkE11 False n
 
 --------------------------------------------------------------------------------
 --          E12/Pico
