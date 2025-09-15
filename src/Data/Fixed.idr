@@ -22,7 +22,7 @@ data Fixed : (res : Integer) -> Type where
 |||
 ||| @chop  whether to drop trailing zeros from the fractional part
 ||| @fa    the fixed-point value, whose type index encodes resolution
-export
+private
 showFixed :  {res : Integer}
           -> (chop : Bool)
           -> (fa : Fixed res)
