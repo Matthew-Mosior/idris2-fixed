@@ -1,5 +1,5 @@
-[custom.all.idris2-fixed]
+[custom.all.fixed]
 type = "local"
 path = "."
-ipkg = "idris2-fixed.ipkg"
+ipkg = "fixed.ipkg"
 test = "test/test.ipkg"
