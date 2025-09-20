@@ -124,6 +124,14 @@ public export
   recip (MkFixed a)         = MkFixed (div (n * n) a)
 
 public export
+{n : Integer} -> Eq (Fixed n) where
+  (MkFixed a) == (MkFixed b) = a == b
+
+public export
+{n : Integer} -> Ord (Fixed n) where
+  compare (MkFixed a) (MkFixed b) = compare a b
+
+public export
 {n : Integer} -> Show (Fixed n) where
   showPrec p fixed@(MkFixed a) =
     showParens (p >= App && a < 0) $
